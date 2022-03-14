@@ -130,7 +130,7 @@ def create_all_inputs(h5file, mag=31.8, snr=5, fileout_lephare='test_DC2_VALID_C
     data_f_removed=dataArray[indexes,:]
     print("U-Magnitude filter: {} original, {} removed, {} left ({} total for check).".format(data_f0.shape, data_f_removed.shape, data_f.shape, data_f_removed.shape[0]+data_f.shape[0]))
 
-    # Get data better than 6 SNR
+    # Get data better than SNR
     indexes_bad=filter_sigtonoise_entries(data_f,nsig=snr)
     data_f=np.delete(data_f,indexes_bad,axis=0)
     print("SNR filter: {} bad indexes, {} left ({} total for check).".format(indexes_bad.shape, data_f.shape, indexes_bad.shape[0]+data_f.shape[0]))
@@ -155,7 +155,14 @@ def create_all_inputs(h5file, mag=31.8, snr=5, fileout_lephare='test_DC2_VALID_C
             context, z = np.hsplit(data_flux, data_flux.shape[1])
     print(gal_id.shape)
     end_col=np.zeros_like(z)
-    data_flux = np.column_stack((u_flux, uf_err, g_flux, gf_err, r_flux, rf_err, i_flux, if_err, z_flux, zf_err, y_flux, yf_err, z, end_col))
+    delightUntFac=2.22e10
+    data_flux = np.column_stack((u_flux*delightUntFac, (uf_err*delightUntFac)**2,\
+                                 g_flux*delightUntFac, (gf_err*delightUntFac)**2,\
+                                 r_flux*delightUntFac, (rf_err*delightUntFac)**2,\
+                                 i_flux*delightUntFac, (if_err*delightUntFac)**2,\
+                                 z_flux*delightUntFac, (zf_err*delightUntFac)**2,\
+                                 y_flux*delightUntFac, (yf_err*delightUntFac)**2,\
+                                 z, end_col))
     
     np.savetxt(fileout_delight, data_flux) #, fmt=['%1i', '%1.6g', '%1.6g',\
                                            #                  '%1.6g', '%1.6g',\
@@ -207,5 +214,3 @@ test_data_mags, test_data_colors, test_data_colmag, test_perturbed_colmag, test_
 
 print(test_data_mags.shape, test_data_colors.shape, test_data_colmag.shape, test_perturbed_colmag.shape, test_z.shape, test_fileout_lephare, test_fileout_delight)
 #h5_file.close()
-
-

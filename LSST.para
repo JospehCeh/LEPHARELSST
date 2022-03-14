@@ -16,7 +16,7 @@ AGE_RANGE      0.,15.e9                 # Age Min-Max in yr
 ##############################################################################################
 # 
 FILTER_REP      $LEPHAREDIR/filt         # Repository in which the filters are stored
-FILTER_LIST     lsst/total_u.pb,lsst/total_g.pb,lsst/total_r.pb,lsst/total_i.pb,lsst/total_z.pb,lsst/total_y4.pb
+FILTER_LIST     lsst_baseline/total_u.pb,lsst_baseline/total_g.pb,lsst_baseline/total_r.pb,lsst_baseline/total_i.pb,lsst_baseline/total_z.pb,lsst_baseline/total_y.pb
 TRANS_TYPE      0                        # TRANSMISSION TYPE
                                          # 0[-def]: Energy, 1: Nb of photons
 FILTER_CALIB    0,0,0,0,0,0              # 0[-def]:  fnu=ctt 
@@ -24,7 +24,7 @@ FILTER_CALIB    0,0,0,0,0,0              # 0[-def]:  fnu=ctt
                                          # 2      :  fnu=nu 
                                          # 3      :  fnu=Black Body @ T=10000K
                                          # 4      :  for MIPS (leff with nu fnu=ctt and flux with BB @ 10000K  
-FILTER_FILE     filter_lsst              # name of file with filters (-> $ZPHOTWORK/filt/)
+FILTER_FILE     filter_lsst_baseline     # name of file with filters (-> $ZPHOTWORK/filt/)
 #
 ##############################################################################################
 ###########                THEORETICAL  MAGNITUDES                               #############
