@@ -4,6 +4,21 @@ import os
 import h5py
 import numpy as np
 
+
+from astropy.table import Table   #astropy routine for reading tables
+import matplotlib.pyplot as plt   #plotting routines
+
+# Random forest routine from scikit-learn:
+from sklearn.ensemble import RandomForestRegressor
+
+# Cross-Validation routines:
+#from sklearn.cross_validation import KFold
+from sklearn.model_selection import KFold
+#from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
+#from sklearn.cross_validation import cross_val_predict
+from sklearn.model_selection import cross_val_predict
+
 def load_raw_hdf5_data(infile, groupname='None'):
     """
     read in h5py hdf5 data, return a dictionary of all of the keys
