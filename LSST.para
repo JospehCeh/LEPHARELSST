@@ -15,7 +15,7 @@ AGE_RANGE      0.,15.e9                 # Age Min-Max in yr
 ########### Run : $ZPHOTDIR/source/filter  -c zphot.para                         #############
 ##############################################################################################
 # 
-FILTER_REP      $LEPHAREWORK/filt         # Repository in which the filters are stored
+FILTER_REP      filt                     # Repository in which the filters are stored
 FILTER_LIST     lsst_baseline/total_u.pb,lsst_baseline/total_g.pb,lsst_baseline/total_r.pb,lsst_baseline/total_i.pb,lsst_baseline/total_z.pb,lsst_baseline/total_y.pb
 TRANS_TYPE      0                        # TRANSMISSION TYPE
                                          # 0[-def]: Energy, 1: Nb of photons

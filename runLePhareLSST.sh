@@ -25,7 +25,7 @@ else
   if [ ! -d "$LEPHAREWORK/lib_mag" ] ; then
     mkdir "$LEPHAREWORK/lib_mag"
   fi
-  if [ ! -d "$LEPHAREWORK/lib_filt" ] ; then
+  if [ ! -d "$LEPHAREWORK/filt" ] ; then
     mkdir "$LEPHAREWORK/filt"
   fi
 fi
