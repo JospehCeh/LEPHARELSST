@@ -45,8 +45,10 @@ $LEPHAREDIR/source/mag_gal -t G -c LSST.para
 ## finally proceed to photometric redshift estimation
 echo "Estimation"
 $LEPHAREDIR/source/zphota -c LSST.para -CAT_IN "$CAT_FILE_IN" -CAT_TYPE LONG -CAT_OUT zphot_long.out -AUTO_ADAPT YES
+#$LEPHAREDIR/source/zphota -c LSST.para -CAT_IN train_DC2_VALID_CAT_IN.in -CAT_TYPE LONG -CAT_OUT train_zphot_long.out -AUTO_ADAPT YES
 #$LEPHAREDIR/source/zphota -c LSST.para -CAT_IN COSMOS.in -CAT_OUT zphot_short.out -ZPHOTLIB VISTA_COSMOS_FREE,ALLSTAR_COSMOS,QSO_COSMOS -AUTO_ADAPT YES
 
 ## a python script is available to perform a quick diagnostics
 echo "Plots"
 python figuresLPZ.py zphot_long.out
+#python figuresLPZ.py train_zphot_long.out
